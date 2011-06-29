@@ -1,0 +1,2 @@
+alias start-mongod-with-auth="mongod --dbpath $HOME/data/mongodb/db --logpath $HOME/data/mongodb/log/`date +%Y%m%d`.log --logappend --quiet --auth &"
+alias start-mongod="mongod --dbpath $HOME/data/mongodb/db --logpath $HOME/data/mongodb/log/`date +%Y%m%d`.log --logappend --quiet &"

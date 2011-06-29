@@ -1,0 +1,21 @@
+require 'rubygems'
+
+begin
+  require 'interactive_editor'
+rescue Exception => e
+  puts 'miss "interactive_editor" gem'
+end
+
+begin
+  require 'hirb'
+  require 'wirble'
+
+  extend Hirb::Console
+  Hirb::View.enable
+  Hirb::View.formatter_config
+
+  Wirble.init
+  Wirble.colorize
+rescue Exception => e
+  puts 'miss "hirb" & "wirble" gems'
+end

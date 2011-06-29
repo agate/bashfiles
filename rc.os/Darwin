@@ -1,0 +1,15 @@
+# completion ignore case
+bind "set completion-ignore-case on"
+
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# brew bash completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
