@@ -1,4 +1,10 @@
 # VIM Viewer
 function v() {
-$@ | vim -R -
+  $@ | vim -R -
+}
+
+function vimclojurengserver() {
+  SERVER=/Users/honghao/.m2/repository/vimclojure/server/2.3.0/server-2.3.0.jar
+  CLOJURE=/Users/honghao/.m2/repository/org/clojure/clojure/1.3.0/clojure-1.3.0.jar
+  java -cp $SERVER:$CLOJURE vimclojure.nailgun.NGServer
 }

@@ -1,0 +1,9 @@
+function usage {
+  if [[ $1 = "cpu" ]]; then
+    ps auxc > /tmp/memusage; cat /tmp/memusage | less | awk '{ print $11 }' | sort | uniq | grep -v '^[^a-zA-Z]' | while read line; do cat /tmp/memusage | grep $line | awk -v n=$line '{ sum += $3 } END { print sum"\t"n }'; done | sort -rg
+  elif [[ $1 = "mem" ]]; then
+    ps auxc > /tmp/memusage; cat /tmp/memusage | less | awk '{ print $11 }' | sort | uniq | grep -v '^[^a-zA-Z]' | while read line; do cat /tmp/memusage | grep $line | awk -v n=$line '{ sum += $4 } END { print sum"\t"n }'; done | sort -rg
+  else
+    echo "mem or cpu?"
+  fi
+}

@@ -1,0 +1,3 @@
+if [ -d $HOME/bin/calibre ] ; then
+  PATH=$HOME/bin/calibre:$PATH
+fi

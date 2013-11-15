@@ -1,0 +1,6 @@
+if [ -d $HOME/Workspace/github/narwhal/bin ] ; then
+  PATH=$HOME/Workspace/github/narwhal/bin:$PATH
+fi
+
+export NARWHAL_ENGINE=jsc
+#export NARWHAL_ENGINE=ringo

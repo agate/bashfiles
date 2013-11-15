@@ -1,0 +1,2 @@
+alias encrypt="openssl des3 -salt -a"
+alias decrypt="openssl des3 -salt -a -d"

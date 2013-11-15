@@ -1,0 +1,26 @@
+# ssh stuff
+alias factualssh='ssh -i ~/.ssh/factual_id_rsa'
+alias factualscp='scp -i ~/.ssh/factual_id_rsa'
+alias ssh2mozeal='ssh agate@mozeal.gicp.net -D7777'
+
+# factual office stuff
+function shanghai_ssh_ip() {
+  if [[ -n `ifconfig | egrep "inet 10\.0\."` ]]; then
+    echo '10.0.2.10'
+  else
+    ship
+  fi
+}
+function shanghai_ssh_port() {
+  if [[ -n `ifconfig | egrep "inet 10\.0\."` ]]; then
+    echo '22'
+  else
+    echo '222'
+  fi
+}
+function ssh2shanghai() {
+  factualssh -p `shanghai_ssh_port` honghao@`shanghai_ssh_ip` $@
+}
+function gfw() {
+  ssh2shanghai -L7070:10.0.2.10:9081
+}

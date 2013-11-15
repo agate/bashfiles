@@ -1,0 +1,8 @@
+function whatismyip {
+  wget http://automation.whatismyip.com/n09230945.asp -O - -q
+  echo
+}
+function ship {
+  wget http://ileonux.com/ship.php -O - -q
+  echo
+}

@@ -19,3 +19,4 @@
   co = checkout
   cl = clone
   rb = rebase
+  unstage = reset HEAD

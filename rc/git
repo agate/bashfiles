@@ -1,5 +1,23 @@
-# git branch detect
-function git_branch {
+function git_status() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-  echo " [GIT:"${ref#refs/heads/}"] ";
+  branch="${ref#refs/heads/}"
+  git_status="`git status -unormal 2>&1`"
+
+  if [[ "$git_status" =~ Changes\ to\ be\ committed ]]; then
+    status="$status${COLOR_TXT_GRN}•"
+  fi
+
+  if [[ "$git_status" =~ Changes\ not\ staged\ for\ commit ]]; then
+    status="$status${COLOR_TXT_RED}•"
+  fi
+
+  if [[ "$git_status" =~ Untracked\ files ]]; then
+    status="$status${COLOR_TXT_YLW}•"
+  fi
+
+  if [[ -n $status ]]; then
+    status=" $status"
+  fi
+
+  echo " ${COLOR_TXT_PUR}[${COLOR_TXT_RST}GIT:${COLOR_TXT_GRN}$branch$status$COLOR_TXT_PUR] "
 }

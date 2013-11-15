@@ -1,0 +1,31 @@
+startup_message off
+
+vbell off
+
+defscrollback 5000
+
+altscreen on
+
+fit
+
+term xterm-256color
+
+#encoding UTF-8
+#defutf8 on
+
+# Define status commands
+# 60 means 1 minute
+backtick 1 1 1 $HOME/.screen/load-averages
+
+hardstatus alwayslastline
+#hardstatus string '%-w%{= gW}%50>[%n]%t%{-}%+w%< %-=%{= gW} %D %Y-%m-%d | %C:%s %A | %1` '
+hardstatus alwayslastline "%{+b dw}%H:%{-b dw}:%{+b dk}[ %{-b dg}%D %M %d %Y %0C:%s%a %{=b dk}]-[ %{-b dw}Load: %{+b dk}:%{-b dg}%l %{+b dk}]"
+caption always "%-w%{= Wk}%50>-= %{+b Wr}%n %t%{-} =-%{-}%+w%<"
+
+#terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+#attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+# termcapinfo xterm-256color "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm"
+# erase background with current bg color
+#defbce "on"

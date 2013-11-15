@@ -1,15 +1,31 @@
-# completion ignore case
-bind "set completion-ignore-case on"
-
-export CLICOLOR=1
-export LSCOLORS=gxfxcxdxbxegedabagacad
-
-set meta-flag on
-set input-meta on
-set output-meta on
-set convert-meta off
+PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+PATH="$HOME/Workspace/android-sdk-macosx/tools:$HOME/Workspace/android-sdk-macos/platform-toolsx:$PATH"
 
 # brew bash completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ] ; then
+  . `brew --prefix`/etc/bash_completion
+  . `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+fi
+
+if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+  alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+  alias vi=vim
+fi
+
+if [ -f /Applications/node-webkit.app/Contents/MacOS/node-webkit ]; then
+  alias nw=/Applications/node-webkit.app/Contents/MacOS/node-webkit
+fi
+
+# brew byobu completion
+export BYOBU_PREFIX=`brew --prefix`
+
+# java stuff
+if [ -f /usr/libexec/java_home ]; then
+  export JAVA_HOME=`/usr/libexec/java_home`
+fi
+
+# python stuff
+if [ -d $(brew --prefix)/lib/python2.7/site-packages ] ; then
+  export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
+  PATH=/usr/local/share/python:$PATH
 fi
