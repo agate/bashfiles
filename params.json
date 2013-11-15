@@ -1,0 +1,1 @@
+{"name":"Bashfiles","tagline":"my bash config files","body":"#My Bash Config Files\r\n\r\n## How to Install\r\n\r\n### Manually\r\n```\r\n$ git clone git://github.com/agate/bashfiles.git ~/.bash\r\n$ cd ~/.bash\r\n$ ./install.sh\r\n```\r\n","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
